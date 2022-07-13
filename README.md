@@ -1,4 +1,4 @@
-# brainfuck compiler Golang
+# Brainf*ck compiler Golang
 #### github.com/slimdestro/brainfuckparser/pkg
 
 [![N|Solid](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/60px-Go_Logo_Blue.svg.png)](https://dev.to/slimdestro)
@@ -9,9 +9,7 @@ Install the package by doing get get:
 
 ```sh
 go get github.com/slimdestro/brainfuckparser/pkg
-```
 
-```sh
 compiler.Compile(syntax)  
 ```
 
