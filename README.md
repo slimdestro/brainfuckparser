@@ -1,5 +1,5 @@
 # brainfuck compiler Golang
-#### Bulk Generate && Validate US Phone numbers
+#### github.com/slimdestro/brainfuckparser/pkg
 
 [![N|Solid](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/60px-Go_Logo_Blue.svg.png)](https://dev.to/slimdestro)
  
@@ -8,43 +8,46 @@
 Install the package by doing get get:
 
 ```sh
-go get github.com/slimdestro/phonenumber/phonescript
+go get github.com/slimdestro/brainfuckparser/pkg
 ```
 
-Two Methods that is exported and can be used in your module are:
-
 ```sh
-GenerateNumbers(10000) 
-ValidateNumbers("/path/to/csv_10K_records")  
+compiler.Compile(syntax)  
 ```
 
 ## Example
 
 ```sh
-package main 
+package main
 
 import (
-	"flag"
-	"fmt" 
-	"github.com/slimdestro/phonenumber/phonescript"
+    "github.com/slimdestro/brainfuckparser/pkg" 
+    "io/ioutil"
+    "errors"
+    "log"
+    "os" 
 )
-var generateNumbersFlag string
+/*
+    @ go run main.go bfsourcecodes/{fileName}
+*/
 
-func main(){
-    flag.StringVar(&generateNumbersFlag, "o", "import", "100")
-    flag.Parse()
-    commandsArray := flag.Args()
+func main() {
+    if len(os.Args) > 1 {
+        file, err := ioutil.ReadFile(os.Args[1])
+        if err != nil{
+            if errors.Is(err, os.ErrNotExist){
+                log.Println("Specified file doesnt exist!")
+                return
+            }else{
+                panic(err)
+            }
+        }
 
-	switch commandsArray[0] {
-	case "generate":
-		phonescript.GenerateNumbers(commandsArray[1])
-		return
-	case "import":
-		phonescript.ValidateNumbers(commandsArray[1])
-		return
-	default:
-		fmt.Println("Invalid output")
-	}
+        code := string(file) 
+        compiler.Compile(code)
+    } else {
+        log.Fatal("a BrainFcuk source file is required")
+    }
 }
  
 ```
