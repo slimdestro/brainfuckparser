@@ -1,11 +1,3 @@
-/*
-    @As mentioned in PDF, this program should work like a standalone package and user 
-    should be able to go get ...
-
-    @Since im not uploading it on Git and hence i just put a placeholder :upwork/TaskBFCompiler/pkg
-    @To use this in other project: go get => compiler.Compile(code)
-
-*/
 package compiler
 
 import (

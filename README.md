@@ -5,7 +5,7 @@
  
 ## Installation
 
-Install the package by doing get get:
+Install the package by doing go get:
 
 ```sh
 go get github.com/slimdestro/brainfuckparser/pkg
@@ -53,4 +53,4 @@ func main() {
 
 ## Author
 
-[slimdestro(Mukul Mishra)](https://dev.to/slimdestro)
+[slimdestro(Mukul Mishra)](https://linktr.ee/slimdestro)
